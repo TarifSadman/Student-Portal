@@ -11,19 +11,40 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin1 = (e) => {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
+  
     signInWithEmailAndPassword(auth, username, password)
-    .then((userCredential) => {
-      console.log(userCredential, "userCredential");
-      alert("Login Successful");
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
-      history("/dashboard");
-    })
-    .catch((error) => {
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(userCredential, "userCredential");
+  
+        // Store the authentication token in local storage
+        localStorage.setItem("authToken", user.accessToken);
+  
+        // Check if the user is an admin based on email
+        if (user && user.email && user.email.toLowerCase() === "admin@admin.net") {
+          // Redirect to the admin dashboard
+          history("/admin-dashboard");
+        } else {
+          // Redirect to the regular dashboard
+          history("/dashboard");
+        }
+  
+        // You may want to store other user-related information if needed
+        localStorage.setItem("username", username);
+  
+        alert("Login Successful");
+      })
+      .catch((error) => {
         alert("Login Failed");
         console.log(error, "error");
-    });
-    }
+      });
+  };
+  
+  
+  
 
   return (
     <div className="login-page">

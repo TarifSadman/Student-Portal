@@ -1,0 +1,15 @@
+{
+    "id": 2,
+    "name": "Student 2",
+    "class": "Grade 101",
+    "contactDetails": {
+      "email": "student2@example.com",
+      "phone": "123-456-789220"
+    },
+    "courses": [
+      { "id": 101, "name": "Mathematics", "instructor": "Dr. Smith", "progress": 70 },
+      { "id": 102, "name": "History", "instructor": "Prof. Johnson", "progress": 40 },
+      { "id": 103, "name": "Biology", "instructor": "Dr. Williams", "progress": 90 }
+    ]
+  }
+  

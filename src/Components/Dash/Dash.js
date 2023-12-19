@@ -66,7 +66,7 @@ const Dash = () => {
         <Dropdown overlay={profileMenu} placement="bottomRight" arrow>
           <Button type="link" style={{ color: '#fff' }}>
             <Avatar icon={<UserOutlined />} style={{ marginRight: '8px' }} />
-            Demo User
+            Demo Student
           </Button>
         </Dropdown>
       </Header>
