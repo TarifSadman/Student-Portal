@@ -20,19 +20,14 @@ const LoginPage = () => {
         const user = userCredential.user;
         console.log(userCredential, "userCredential");
   
-        // Store the authentication token in local storage
         localStorage.setItem("authToken", user.accessToken);
   
-        // Check if the user is an admin based on email
         if (user && user.email && user.email.toLowerCase() === "admin@admin.net") {
-          // Redirect to the admin dashboard
           history("/admin-dashboard");
         } else {
-          // Redirect to the regular dashboard
           history("/dashboard");
         }
   
-        // You may want to store other user-related information if needed
         localStorage.setItem("username", username);
   
         alert("Login Successful");
